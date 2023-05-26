@@ -21,12 +21,15 @@ function LoginScreen() {
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
         if (!emailvalue) {
             showError('Email is required')
+            return true;
         } else if (!regex.test(emailvalue)) {
             showError('Email is Invalid');
-        }
-        if (!passwordvalue) {
+            return true;
+        } else if (!passwordvalue) {
             showError('Password is required')
+            return true;
         }
+        return false;
     }
 
     const handleSubmit = () => {
@@ -69,7 +72,7 @@ function LoginScreen() {
                             <InputText 
                                 value={emailvalue} 
                                 onChange={(e) => setEmailvalue(e.target.value)}
-                                placeholder="E.g User@gmail.com"/>        
+                                placeholder="E.g User@gmail.com"/>
                         </span>
                     </div>
                     <p class="font-semibold p-4 text-xl">Password</p>
