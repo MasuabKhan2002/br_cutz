@@ -1,24 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import App from './App';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { RequireAuth } from './firebase/auth';
 import LoginScreen from './screens/logIn';
 import reportWebVitals from './reportWebVitals';
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
+import App from './App';
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <App />
+    path: "/login",
+    element: <LoginScreen />
   },
   {
     path: "admin/",
+    element: <RequireAuth/>,
     children: [
       {
-        path: "login/",
-        element: <LoginScreen />
+        path: "dashboard/",
+        element: <App />
       }
     ]
   }

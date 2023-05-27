@@ -4,7 +4,7 @@ import { Password } from "primereact/password";
 import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
 import { Navigate } from "react-router-dom";
-import LogInAuth from "../firebase/auth";
+import { LogInAuth } from "../firebase/auth";
 
 function LoginScreen() {
     const [emailvalue, setEmailvalue] = useState('');
@@ -54,19 +54,19 @@ function LoginScreen() {
     }
 
     if (navigation) {
-      return <Navigate to="/"/>;          
+      return <Navigate to="/admin/dashboard"/>;          
     }
 
     return(
         <>
             <Toast ref={toast} />
-            <div class="flex justify-content-center align-items-center pt-8">
-                <p class="font-semibold p-4 text-3xl text-white">Log-In</p>
+            <div className="flex justify-content-center align-items-center pt-8">
+                <p className="font-semibold p-4 text-3xl text-white">Log-In</p>
             </div>
-            <div class="flex justify-content-center align-items-center">
-                <div class="box bg-primary p-5 text-center w-4 h-20rem">
-                    <p class="font-semibold p-4 text-xl">Email</p>
-                    <div class="flex justify-content-center">
+            <div className="flex justify-content-center align-items-center">
+                <div className="box bg-primary p-5 text-center w-4 h-20rem">
+                    <p className="font-semibold p-4 text-xl">Email</p>
+                    <div className="flex justify-content-center">
                         <span className="p-input-icon-left">
                             <i className="pi pi-user"/>
                             <InputText 
@@ -75,8 +75,8 @@ function LoginScreen() {
                                 placeholder="E.g User@gmail.com"/>
                         </span>
                     </div>
-                    <p class="font-semibold p-4 text-xl">Password</p>
-                    <div class="flex justify-content-center">
+                    <p className="font-semibold p-4 text-xl">Password</p>
+                    <div className="flex justify-content-center">
                         <span className="p-input-icon-left">
                             <i className="pi pi-user"/>
                             <Password 
@@ -86,7 +86,7 @@ function LoginScreen() {
                                 feedback={false}/>
                         </span>
                     </div>
-                    <div class="p-4 flex justify-content-center">
+                    <div className="p-4 flex justify-content-center">
                         <Button
                             label="Log In"
                             icon="pi pi-check"
