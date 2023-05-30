@@ -15,6 +15,7 @@ export default function Navbar() {
             navigate("/login");
         }, 1000);
     };
+
     return (
         <nav className="navbar p-3 shadow-3 surface-200">
                 <div className="navbar-start">
@@ -32,4 +33,4 @@ export default function Navbar() {
                 </div>
         </nav>
     );
-}
+};

@@ -54,7 +54,7 @@ function LoginScreen() {
     }
 
     if (navigation) {
-      return <Navigate to="/admin/dashboard"/>;          
+      return <Navigate to="/admin/dashboard/home"/>;          
     }
 
     return(
