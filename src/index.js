@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
-import App from './App';
+import Dashboard from './screens/admin/dashboard';
 
 const router = createBrowserRouter([
   {
@@ -20,7 +20,10 @@ const router = createBrowserRouter([
     children: [
       {
         path: "dashboard/",
-        element: <App />
+        element: <Dashboard />
+      },
+      {
+        path: "settings/",
       }
     ]
   }
