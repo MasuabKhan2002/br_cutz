@@ -54,16 +54,16 @@ function LoginScreen() {
     }
 
     if (navigation) {
-      return <Navigate to="/admin/dashboard"/>;          
+      return <Navigate to="/admin/dashboard/home"/>;          
     }
 
     return(
         <>
             <Toast ref={toast} />
             <div className="flex justify-content-center align-items-center pt-8">
-                <p className="font-semibold p-4 text-3xl text-white">Log-In</p>
+                <p className="font-semibold p-4 text-4xl text-surface-900">Sign In</p>
             </div>
-            <div className="flex justify-content-center align-items-center">
+            <form onSubmit={handleSubmit} className="flex justify-content-center align-items-center">
                 <div className="box bg-primary p-5 text-center w-4 h-20rem">
                     <p className="font-semibold p-4 text-xl">Email</p>
                     <div className="flex justify-content-center">
@@ -89,14 +89,16 @@ function LoginScreen() {
                     <div className="p-4 flex justify-content-center">
                         <Button
                             label="Log In"
+                            severity="secondary"
+                            type="submit"
+                            raised
                             icon="pi pi-check"
                             iconPos="right"
-                            className="surface-900"
                             loading={loading}
                             onClick={handleSubmit}/>
                     </div>
                 </div>
-            </div>
+            </form>
         </>
     );
 }

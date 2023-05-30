@@ -1,8 +1,12 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { auth } from './config.js';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { Navigate } from 'react-router-dom';
-import { useAuthState } from "react-firebase-hooks/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
+import { useNavigate, Outlet } from 'react-router-dom';
+import Navbar from "../components/navbar.js";
+
+async function SignOut() {
+  await signOut(auth);
+};
 
 function LogInAuth(email, password) {
   return new Promise((resolve, reject) => {
@@ -15,18 +19,25 @@ function LogInAuth(email, password) {
         reject(error);
       });
   });
-}
+};
 
-function RequireAuth({ children }) {
-  const [user, loading] = useAuthState(auth);
+function RequireAuth() {
+  const navigate = useNavigate();
   
   useEffect(() => {
-    if (loading) return;
-    console.log(user);
-    if (!user) return <Navigate to="/login"/>;
-  }, [user, loading]);
-  return children;
-}
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if(!user) navigate("/login");
+      else return;
+    })
+    
+    unsubscribe();
+  });
+  return (
+    <>
+      <Navbar/>
+      <div id="detail"><Outlet/></div>
+    </>
+  );
+};
 
-
-export {LogInAuth, RequireAuth};
+export {LogInAuth, RequireAuth, SignOut};
