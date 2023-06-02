@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
     return (
-        <aside className="menu shadow-3 surface-200 w-3 p-5 pl-6 h-screen">
+        <aside className="menu shadow-3 surface-200 p-5 pl-6 h-screen">
             <p className="menu-label font-bold">
                 General
             </p>

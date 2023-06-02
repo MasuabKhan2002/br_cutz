@@ -8,6 +8,7 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import Dashboard from './screens/admin/dashboard';
+import BookingDashboard from './screens/admin/bookings';
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,8 @@ const router = createBrowserRouter([
             path: "home/"
           },
           {
-            path: "bookings/"
+            path: "bookings/",
+            element: <BookingDashboard/>
           }
         ]
       },

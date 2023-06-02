@@ -26,8 +26,11 @@ function RequireAuth() {
   
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if(user) {
+        user.displayName = "Masuab Khan";
+        return;
+      };
       if(!user) navigate("/login");
-      else return;
     })
     
     unsubscribe();
