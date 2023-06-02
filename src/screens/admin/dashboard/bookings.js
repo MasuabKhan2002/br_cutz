@@ -1,4 +1,4 @@
-import GetBookings from "../../firebase/getbookings";
+import GetBookings from "../../../firebase/getbookings";
 
 export default function BookingDashboard() {
     return(
