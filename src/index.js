@@ -7,8 +7,9 @@ import reportWebVitals from './reportWebVitals';
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
-import Dashboard from './screens/admin/dashboard';
-import BookingDashboard from './screens/admin/bookings';
+import Dashboard from './screens/admin/dashboard/dashboard';
+import BookingDashboard from './screens/admin/dashboard/bookings';
+import Settings from './screens/admin/settings';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,15 @@ const router = createBrowserRouter([
       },
       {
         path: "settings/",
+        element: <Settings/>,
+        children: [
+          {
+            path: "profile/"
+          },
+          {
+            path: "banking/"
+          }
+        ]
       }
     ]
   }

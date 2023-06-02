@@ -16,6 +16,14 @@ export default function Navbar() {
         }, 1000);
     };
 
+    const settingsPressed = () => {
+        navigate("/admin/settings/profile");
+    };
+
+    const homePressed = () => {
+        navigate("/admin/dashboard/bookings");
+    };
+
     function toggleBurgerMenu() {
         document.querySelector('.navbar-menu').classList.toggle('is-active');
     };
@@ -37,12 +45,12 @@ export default function Navbar() {
             <div className="navbar-menu surface-200 shadow-none" id="navbarBasicExample">
                 <div className="navbar-start">
                     <div className="navbar-item">
-                        <Button label="Dashboard" icon="pi pi-home" iconPos="right"/>
+                        <Button label="Dashboard" icon="pi pi-home" iconPos="right" onClick={homePressed}/>
                     </div>
                 </div>
                 <div className="navbar-end">
                     <div className="navbar-item">
-                        <Button icon="pi pi-cog"/>
+                        <Button icon="pi pi-cog" onClick={settingsPressed}/>
                     </div>
                     <div className="navbar-item">
                         <Button icon="pi pi-sign-out" loading={loading} onClick={signOutPressed}/>
