@@ -10,6 +10,7 @@ import "primeicons/primeicons.css";
 import Dashboard from './screens/admin/dashboard/dashboard';
 import BookingDashboard from './screens/admin/dashboard/bookings';
 import Settings from './screens/admin/settings';
+import ScheduleDashboard from './screens/admin/dashboard/schedule';
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,8 @@ const router = createBrowserRouter([
         element: <Dashboard />,
         children: [
           {
-            path: "home/"
+            path: "schedule/",
+            element: <ScheduleDashboard/>
           },
           {
             path: "bookings/",
